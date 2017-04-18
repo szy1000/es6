@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		function ajax(url) {
+			var promise = new Promise(function(resolve,reject){
+				var xmlhttp = new XMLHttpRequest();
+				xmlhttp.open("GET",url);
+				xmlhttp.send();
+
+				xmlhttp.onreadystatechange = function(){
+					if(this.readyState !==4){
+						return;
+					}
+					if(this.status === 200){
+						resolve(this.responseText);
+					}else{
+						reject(new Error(this.statusText))
+					}
+				}
+			})
+			return promise;
+		}
+
+		ajax("123.txt").then(function(data){
+			alert(data);
+		},function(error){
+			console.log(error);
+		})
+	</script>
+</head>
+<body>
+	<p>Promise Demo</p>
+</body>
+</html>
