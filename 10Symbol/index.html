@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="../common.css">
+</head>
+<body>
+	<p>es5六种数据类型：</p>
+	<ul>
+		<li>undefined</li>
+		<li>null</li>
+		<li>Boolean</li>
+		<li>String</li>
+		<li>Number</li>
+		<li>Object</li>
+		<li class="red">Symbol</li>
+	</ul>
+	<p class="red">第七种就是--Symbol</p>
+	<pre>
+		let s = Symbol();
+		typeof s;   //symbol
+	</pre>
+	<script>
+		let s = Symbol();
+		console.log(typeof s); //symbol
+	</script>
+	
+	<p class="red">Symbol函数前面不能加new</p>
+	<pre>
+		let s1 = Symbol('foo');
+		let s2 = Symbol('bar');
+
+		s1  //Symbol(foo)
+		s2  //Symbol(bar)
+
+		s1.toString()  //"Symbol(foo)"
+		s2.toString()  //"Symbol(bar)"
+	</pre>
+	<script>
+		let s1 = Symbol('foo');
+		let s2 = Symbol('bar');
+
+		s1  //Symbol(foo)
+		s2  //Symbol(bar)
+
+		console.log(s1.toString());  //"Symbol(foo)"
+		console.log(s2.toString());  //"Symbol(bar)"
+	</script>
+</body>
+</html>
