@@ -47,5 +47,93 @@
 		console.log(s1.toString());  //"Symbol(foo)"
 		console.log(s2.toString());  //"Symbol(bar)"
 	</script>
+	<p class="red">Symbol的参数是对象的话，就会调用对象的toString()方法，生成一个值</p>
+	<pre>
+		const obj = {
+			toSting() {
+				return 'abc'
+			}
+		}
+
+		const sym = Symbol(obj)
+		sym //Symbol(abc)
+	</pre>
+	<p class="red bolder">注意，Symbol函数的参数只是表示对当前 Symbol值的描述，因此相同参数的Symbol函数的返回值是不相等的。</p>
+	<pre>
+		var sym1 = Symbol();
+		var sym2 = Symbol();
+
+		sym1 === sym2 //false
+
+		var sym1_one = Symbol('baz');
+		var sym2_two = Symbol('baz');
+		
+		s1 === s2 //false
+	</pre>
+	<script>
+		var sym1 = Symbol();
+		var sym2 = Symbol();
+
+		console.log(sym1 === sym2) //false
+
+		var sym1_one = Symbol('baz');
+		var sym2_two = Symbol('baz');
+		
+		console.log(sym1_one === sym2_two) //false
+	</script>
+	<p class="red">Symbol 值不能与其他类型的值进行运算，会报错。但是，Symbol 值可以显式转为字符串。另外，Symbol 值也可以转为布尔值，但是不能转为数值。</p>
+	<pre>
+		var sym_string = Symbol('My symbol');
+
+		"your symbol is " + sym_string //TypeError
+		'your symbol is $(sym_string)'
+	</pre>
+	<script>
+		var sym_string = Symbol('My symbol');
+		var res = "your symbol is " + sym_string;
+		console.log(res);//TypeError
+	</script>
+	<p class="bolder">转化字符串</p>
+	<pre>
+		var sym_to_string = Symbol('My symbol');
+		String(sym_to_string);
+		sym_to_string.toString();
+	</pre>
+	<script>
+		var sym_to_string = Symbol('My symbol');
+		console.log(String(sym_to_string));
+		console.log(sym_to_string.toString());
+	</script>
+	<p class="bolder">转化为布尔类型</p>
+	<pre>
+		var sym_bool = Symbol();
+		Boolean(syn_bool);  //true
+
+		!sym_bool //false
+
+		if(sym_bool){
+			//...
+		}
+
+
+		var sym_num = Symbol('My symbol');
+		Number(sym_num) //TypeError
+		sym_num++
+	</pre>
+	<script>
+		var sym_bool = Symbol();
+		Boolean(sym_bool);  //true
+
+		!sym_bool //false
+
+		if(sym_bool){
+			//...
+		}
+
+
+		var sym_num = Symbol('My symbol');
+		Number(sym_num) //TypeError
+		sym_num++
+	</script>
 </body>
 </html>

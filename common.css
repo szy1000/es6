@@ -10,3 +10,10 @@ pre{
 .red{
 	color: red;
 }
+
+.bold{
+	font-weight: bold;
+}
+.bolder{
+	font-weight: bolder;
+}
