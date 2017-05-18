@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		function Point(x, y){
+			this.x = x;
+			this.y = y;
+		}
+		Point.prototype.toString = function(){
+			return '('+this.x + ', '+this.y+')';
+		};
+
+		var p = new Point(1, 2);
+
+		console.log(p.toString());
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
