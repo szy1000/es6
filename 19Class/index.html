@@ -4,18 +4,18 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<script>
-		// 传统写法
-		function Point(x, y){
-			this.x = x;
-			this.y = y;
-		}
-		Point.prototype.toString = function(){
-			return '('+this.x + ', '+this.y+')';
-		};
+		// // 传统写法  构造函数
+		// function Point(x, y){
+		// 	this.x = x;
+		// 	this.y = y;
+		// }
+		// Point.prototype.toString = function(){
+		// 	return '('+this.x + ', '+this.y+')';
+		// };
 
-		var p = new Point(1, 2);
+		// var p = new Point(1, 2);
 
-		console.log(p.toString());
+		// console.log(p.toString());
 
 		// es6
 		class Point{
@@ -28,6 +28,14 @@
 				return '('+this.x+','+this.y+')'
 			}
 		} 
+				
+		var p = new Point(1, 2);
+
+		console.log(p.toString());		
+
+		console.log(typeof Point);  //function
+
+		console.log(Point === Point.prototype.constructor);  //true  
 	</script>
 </head>
 <body>
