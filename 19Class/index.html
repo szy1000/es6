@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<script>
+		// 传统写法
 		function Point(x, y){
 			this.x = x;
 			this.y = y;
@@ -15,6 +16,18 @@
 		var p = new Point(1, 2);
 
 		console.log(p.toString());
+
+		// es6
+		class Point{
+			constructor(x, y) {
+				this.x = x;
+				this.y = y;
+			}
+
+			toString() {
+				return '('+this.x+','+this.y+')'
+			}
+		} 
 	</script>
 </head>
 <body>
